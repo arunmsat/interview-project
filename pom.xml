@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>co.uk.mod</groupId>
+  <artifactId>interview-test-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>interview-project</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <serenity.version>1.0.47</serenity.version>
+     <serenity.maven.version>1.0.47</serenity.maven.version>
+  </properties>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>1.2.4</version>
+      <scope>test</scope>
+    </dependency>
+    
+   <dependency>
+     <groupId>info.cukes</groupId>
+     <artifactId>cucumber-jvm</artifactId>
+     <version>1.2.4</version>
+     <type>pom</type>
+  </dependency>
+  
+  <dependency>
+   <groupId>info.cukes</groupId>
+   <artifactId>cucumber-junit</artifactId>
+   <version>1.2.4</version>
+  <scope>test</scope>
+  </dependency>
+  
+  <dependency>
+   <groupId>org.seleniumhq.selenium</groupId>
+   <artifactId>selenium-java</artifactId>
+   <version>2.48.2</version>
+  </dependency>
+    
+    <dependency> 
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.14</version>
+	</dependency>
+	
+	<dependency>
+      <groupId>net.sourceforge.htmlunit</groupId>
+      <artifactId>htmlunit</artifactId>
+      <version>2.18</version>
+    </dependency>
+    
+    
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.17-beta1</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.16</version>
+</dependency>
+       
+	<!-- REPORTING -->
+    <dependency>
+      <groupId>com.googlecode.totallylazy</groupId>
+      <artifactId>totallylazy</artifactId>
+      <version>1.20</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/totallylazy-1.20.jar</systemPath>
+     </dependency>
+     
+     <dependency>
+       <groupId>net.masterthought</groupId>
+       <artifactId>cucumber-reporting</artifactId>
+       <version>0.6.0</version>
+     </dependency>
+     
+<!--      <dependency>
+       <groupId>com.oracle</groupId>
+       <artifactId>ojdbc6</artifactId>
+       <version>11.2.0</version>
+     </dependency>
+    -->
+	         
+  </dependencies>
+  
+
+  <build>
+
+   <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <includes>
+          <include>log4j.properties</include>
+        </includes>
+      </testResource>
+    </testResources>
+  
+  
+  
+  <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <!-- <includes>
+                        <exclude>**/*CukesTest</exclude>
+                    </includes> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>0.1.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.googlecode.totallylazy</groupId>
+                        <artifactId>totallylazy</artifactId>
+                        <version>991</version>
+                        <scope>system</scope>
+                        <systemPath>${project.basedir}/lib/totallylazy-991.jar</systemPath>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>janus-project</projectName>
+                             <outputDirectory>${project.build.directory}/site/cucumber-reports</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber-report.json</cucumberOutput>
+                            <enableFlashCharts>false</enableFlashCharts>
+                            <skippedFails>true</skippedFails>
+                        </configuration>
+                    </execution>
+                </executions> 
+            </plugin>
+ 
+        </plugins>
+  
+    </build>
+</project>

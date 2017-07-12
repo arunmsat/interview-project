@@ -1,0 +1,6 @@
+[0903/113042:ERROR:client_util.cc(153)] Failed to load Chrome DLL from C:\Users\aruns\workspace\informs-project\chrome\30.0.1599.101\chrome.dll: The specified module could not be found.
+[0903/113042:ERROR:client_util.cc(198)] Could not find exported function RelaunchChromeBrowserWithNewCommandLineIfNeeded
+[0903/113103:ERROR:client_util.cc(153)] Failed to load Chrome DLL from C:\Users\aruns\workspace\informs-project\chrome\30.0.1599.101\chrome.dll: The specified module could not be found.
+[0903/113103:ERROR:client_util.cc(198)] Could not find exported function RelaunchChromeBrowserWithNewCommandLineIfNeeded
+[0903/114607:ERROR:client_util.cc(153)] Failed to load Chrome DLL from C:\Users\aruns\workspace\informs-project\chrome\30.0.1599.101\chrome.dll: The specified module could not be found.
+[0903/114607:ERROR:client_util.cc(198)] Could not find exported function RelaunchChromeBrowserWithNewCommandLineIfNeeded
